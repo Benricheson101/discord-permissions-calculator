@@ -41,6 +41,6 @@ fn cli() {
     println!("Tokens: {:?}", p.tokens());
 
     if serialize {
-       println!("serialize: {}", serialize);
+       println!("{:#?}", p.serialize());
     }
 }
