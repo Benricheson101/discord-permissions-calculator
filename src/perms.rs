@@ -158,8 +158,16 @@ impl Perms {
         self.0 |= *flag as usize;
     }
 
+    pub fn add_bits(&mut self, bits: usize) {
+        self.0 |= bits
+    }
+
     pub fn remove(&mut self, flag: &FLAGS) {
         self.0 &= !(*flag as usize);
+    }
+
+    pub fn remove_bits(&mut self, bits: usize) {
+        self.0 &= !bits
     }
 
     pub fn has(&self, flag: &FLAGS) -> bool {

@@ -28,8 +28,6 @@ fn cli() {
         )
         .get_matches();
 
-    let serialize = matches.occurrences_of("serialize") > 0;
-
     let p = if let Some(bits) = matches.value_of("bits") {
         let bits = bits.parse::<usize>().unwrap();
         Perms::new(bits)
@@ -38,9 +36,9 @@ fn cli() {
     };
 
     println!("Bits: {}", p);
-    println!("Tokens: {:?}", p.tokens());
+    println!("Tokens: {:#?}", p.tokens());
 
-    if serialize {
+    if matches.occurrences_of("serialize") > 0 {
        println!("{:#?}", p.serialize());
     }
 }
